@@ -1,0 +1,90 @@
+body{
+  padding:0;
+  margin:0;
+  overflow-x: hidden;
+  background-color: whitesmoke;
+}
+.heading-name{
+  font-size: 50px;
+  color:black;
+  padding: 5px 10px;
+  background-color: rgb(189, 236, 236);
+  border: 1px;
+  border-radius: 50px;
+}
+.fa-4x{
+  margin-right: 25px;
+  padding-top:7px ;
+}
+
+.container{
+  background-color: white;
+  margin-top: 60px;
+  border: 1px;
+  border-radius: 50px;
+  height:400px;
+
+  
+  }
+  .heading{
+    display: flex;
+   justify-content: center;
+    padding-top: 10px;
+  }
+  .form-details{
+    margin-top: 20px;
+    display: flex;
+   
+    flex-direction: column;
+    gap: 10px;
+    
+   
+  }
+  .form{
+    display: flex;
+    justify-content: center;
+  }
+  
+.student{
+       display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.student-form{
+  margin-top: 20px;
+  display:flex;
+  justify-content: center;
+}
+.teacher{
+        
+     display:flex;
+     flex-direction: column;
+     gap: 10px;
+     justify-content: center;
+
+}
+.teach-h{
+ 
+  display: flex;
+  justify-content: center;
+}
+img{
+  padding: 1px;
+   border: 10px;
+   border-radius: 40%;
+   border-color: rgb(184, 50, 50);
+   object-fit: cover;
+   
+}
+img:hover{
+  border:3px;
+  border-color: rgb(184, 50, 50);
+}
+.outlet{
+   background-image: url("./casual-life-3d-boy-sitting-at-the-desk-with-open-book.png");
+  background-blend-mode:lighten ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+}
