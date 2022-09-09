@@ -55,16 +55,21 @@ function Addstudent() {
   const navigate = useNavigate();
   var [name, setname] = useState()
   var [surname, setsurname] = useState("")
+  var [email, setemail] = useState("")
+  var [pass, setpassword] = useState("")
   var [gender, setgender] = useState("")
   var [fatherName, setfather] = useState("")
   var [age, setage] = useState("")
   var [course, setcourse] = useState("")
   var [standard, setstandard] = useState("")
   var [role, setrole] = useState("")
+
   var studentData = () => {
     var stdata = {
       name,
       surname,
+      email,
+      pass,
       gender,
       standard,
       fatherName,
@@ -88,6 +93,8 @@ function Addstudent() {
 
             <TextField id="outlined-basic" onChange={(e) => setname(e.target.value)} label="name" variant="outlined" style={{ width: 300 }} />
             <TextField id="outlined-basic" onChange={(e) => setsurname(e.target.value)} label="surname" variant="outlined" style={{ width: 300 }} />
+            <TextField id="outlined-basic" onChange={(e) => setemail(e.target.value)} label="email" variant="outlined" style={{ width: 300 }} />
+            <TextField id="outlined-basic" onChange={(e) => setpassword(e.target.value)} label="password" variant="outlined" style={{ width: 300 }} />
             <TextField id="outlined-basic" onChange={(e) => setgender(e.target.value)} label="gender" variant="outlined" style={{ width: 300 }} />
             <TextField id="outlined-basic" onChange={(e) => setfather(e.target.value)} label="father Name" variant="outlined" style={{ width: 300 }} />
             <TextField id="outlined-basic" onChange={(e) => setage(e.target.value)} label="Age" variant="outlined" style={{ width: 300 }} />
