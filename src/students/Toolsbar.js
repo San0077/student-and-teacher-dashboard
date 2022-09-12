@@ -54,37 +54,5 @@ export function Studenttoolbar(){
 }
 
 
-// const UserContext = React.createContext();
 
-// const BoldUser = () => {
-//     const user = React.useContext(UserContext);
-//     return (<b>{user.name} {user.age}</b>);
-// };
-
-// const ItalicUser = () => {
-//     const user = React.useContext(UserContext);
-//     return (<i>{user.name} {user.age}</i>);
-// };
-
-// const BoldUserWrapper = () => {
-// 	return (<BoldUser />);
-// };
-
-// const ItalicUserWrapper = () => {
-// 	return (<ItalicUser />);
-// };
-
-// const App = () => {
-//   const user = {
-//      	name: 'John',
-//     	age: 25
-//   };
-//   return (
-//     <UserContext.Provider value={user}>
-//       <BoldUserWrapper />
-//       <br/>
-//       <ItalicUserWrapper />
-//     </UserContext.Provider>
-//   );
-// };
 export default Toolsbar;

@@ -1,26 +1,26 @@
 import './App.css';
-import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap'
-import React, { useEffect, useState, useContext, createContext } from 'react';
-import { Link, useNavigate, useParams, Navigate, BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useContext, createContext } from 'react';
+import {useNavigate, Routes, Route } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Stdetails, About, Class,Leave } from './App.1.js'
-import { Toolsbar,Studenttoolbar } from './Toolsbar';
-import {Sabout,SLeave,Courses,Tclass} from './student.js'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import { Leave } from "./teacher/Leave";
+import { Class } from "./teacher/Class";
+import { About } from "./teacher/About";
+import { Stdetails } from "./teacher/Stdetails";
+import { Toolsbar,Studenttoolbar } from './students/Toolsbar';
+import {Sabout,Edit} from './students/student.js'
+import {Tclass} from './students/Tclass.js'
+import { Courses } from "./students/Courses";
+import { SLeave } from "./students/SLeave";
+import { Login } from './students/Login';
 
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-});
+
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
-    <Paper elevation={5} color="blue" >
+    
+    
     <div>
       <Routes>
 
@@ -35,17 +35,18 @@ function App() {
         </Route>
            
            <Route path="/Student-profile/:id" element={<Studenttoolbar/>}>
-           <Route path="Sabout" element={<Sabout />}></Route>
+           <Route index path="Sabout" element={<Sabout />}></Route>
            <Route path="Apply-leave" element={< SLeave/>}></Route>
            <Route path="course" element={<Courses />}></Route>
-           <Route path="T-class" element={<Tclass />}></Route>
+            <Route path="T-class" element={<Tclass />}></Route>
 
          </Route>
+         
       </Routes>
 
          </div>
-      </Paper>
-    </ThemeProvider>
+      
+   
 
   )
 }
@@ -56,7 +57,7 @@ function Addstudent() {
   var [name, setname] = useState()
   var [surname, setsurname] = useState("")
   var [email, setemail] = useState("")
-  var [pass, setpassword] = useState("")
+  var [password, setpassword] = useState("")
   var [gender, setgender] = useState("")
   var [fatherName, setfather] = useState("")
   var [age, setage] = useState("")
@@ -69,7 +70,7 @@ function Addstudent() {
       name,
       surname,
       email,
-      pass,
+      password,
       gender,
       standard,
       fatherName,
@@ -77,7 +78,7 @@ function Addstudent() {
       course,
       role
     }
-    fetch("https://624a7f87852fe6ebf887cb38.mockapi.io/users", {
+    fetch("https://studentandteacher.herokuapp.com/stu-form", {
       method: "POST",
       body: JSON.stringify(stdata),
       headers: {
@@ -107,67 +108,6 @@ function Addstudent() {
       </div>
              
    
-  )
-}
-function Login() {
-  const navigate = useNavigate()
-  let [email, setemail] = useState()
-  let [password, setpassword] = useState()
-
-function submit() {
-  let result = fetch("https://624a7f87852fe6ebf887cb38.mockapi.io/user")
-    result.then(data => data.json()).then((datas) => {
-      datas.map((e) => {
-        if (e.email == email && e.password == password ) {
-             if(e.role == "teacher"){
-              navigate("/msg/" + e.id)
-             }else if(e.role=="student"){
-               navigate("/Student-profile/"+e.id)
-             }
-        }
-
-      })
-    })
-  }
-
-  return (
-    <div>
-      <div className="document">
-        <div className='container'>
-          <div className='heading'>
-            <i className="fa fa-book fa-4x" aria-hidden="true"></i>
-            <span className='heading-name'>The think and Learn</span>
-          </div>
-          <div className='form'>
-            <div>
-              <form className='form-details'>
-                <TextField id="outlined-basic"
-                  label="username" variant="outlined"
-                  style={{ width: 300 }}
-                  onChange={(e) => setemail(e.target.value)}
-                />
-
-                <TextField id="outlined-basic"
-                  label="password" variant="outlined"
-                  style={{ width: 300 }}
-                  onChange={(e) => setpassword(e.target.value)}
-                />
-
-                <div className='button'>
-                  <Button variant="contained" type="button"
-                    style={{ marginRight: 20 }}
-                    onClick={submit}>Log In</Button>
-                  <Button variant="contained" type="button" onClick={() => navigate("/stu-form")} >Sign in</Button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
   )
 }
 export default App;
